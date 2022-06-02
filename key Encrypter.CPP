@@ -4,7 +4,7 @@
 #include<stdlib.h>
 #include<queue>
 #include<stdio.h>
-#include<chrono>
+#include<bits/c++0x_warning.h>
 #include<thread>
 #include<climits>
 #include<bitset>
@@ -59,7 +59,7 @@ void runLengthEncode (LL* head)
 {
 	LL* temp = NULL;
 	LL* ptr = NULL;
-	int count = 0; 
+	int count = 0;
 
 	temp = head;
 	while (temp != NULL)
@@ -136,8 +136,8 @@ Node* insertLevelOrder(string name, Node* root,int i, int n)
 string levelOrder(Node *root)
 {
     string cipher_in = "";
-    
-    if (root == NULL) 
+
+    if (root == NULL)
     	return cipher_in;
 
     queue<Node *> q;
@@ -158,7 +158,7 @@ string levelOrder(Node *root)
 
         }
 
-        else 
+        else
         {
 
             if(curr->left)
@@ -210,7 +210,7 @@ char ASCII_to_char(int x)
 
 //utility func for swapping
 void swap(int a, int b)
-{	
+{
 	int temp;
 	temp = a;
 	a = b;
@@ -222,10 +222,10 @@ void swap(int a, int b)
 //print final decryption
 void printList (LL* head)
 {
-  
+
   cout<<"\n\nYour messeage has been successfully encoded...\n\n";
 	cout<<"Final cipher is :::: "<<endl;
-	
+
 	while (head != NULL)
 	{
 		printf ("%c ",head->data);
@@ -242,7 +242,7 @@ void print_decrypt_result(string s)
 	cout<<"\n\nYour messeage has been successfully decoded...\n\n";
 
 	cout<<"Final message is :::: "<<s<<endl;
-	
+
 }
 
 
@@ -251,8 +251,8 @@ void print_decrypt_result(string s)
 void file_en_de()
 {
   string name, target;
-  char ch, mod;                         
-  
+  char ch, mod;
+
   int num[100], i, option;
 
   cout <<"\n\nFOR FILE ENCRYPTION / DECRYPTION ";
@@ -272,37 +272,37 @@ void file_en_de()
     cin.ignore();
     getline(cin, name);
 
-    ifstream fin(name);                             
+    ifstream fin(name);
     if (!fin)
-    { 
-      cout << "\n\nError In Openinig Of A File : ";               
+    {
+      cout << "\n\nError In Openinig Of A File : ";
     }
 
     cout << "Enter The New Encrypted File Name : ";
     cin.ignore();
     getline(cin, target);
 
-    ofstream fout(target); 
+    ofstream fout(target);
 
     if (!fout)
     {
-      cout << "\n\nError In Opening Of Target File : ";            
-      
+      cout << "\n\nError In Opening Of Target File : ";
+
     }
 
     for (i = 0; i < 9; i++)
     {
-      num[i] = i;                                             
+      num[i] = i;
     }
 
-    for (i = 14; i < 31; i++)                                  
+    for (i = 14; i < 31; i++)
     {
-      num[i - 5] = i;                                         
+      num[i - 5] = i;
     }
 
-    for (i = 33; i <= 68; i++)                                 
-    { 
-      num[i - 7] = i;                                    
+    for (i = 33; i <= 68; i++)
+    {
+      num[i - 7] = i;
     }
 
     for (i = 97; i <= 122; i++)
@@ -311,14 +311,14 @@ void file_en_de()
     }
 
     while (fin)
-    { 
+    {
       fin.get(ch);
 
       if (ch == EOF)
-        break;                                 
+        break;
 
       if ((ch >= 97) && (ch <= 122))
-      { 
+      {
         i = 97;
         mod = num[ch - i];
         fout << mod;
@@ -326,66 +326,66 @@ void file_en_de()
 
       if ((ch >= 65) && (ch <= 90))
       {
-        i = 39;                                               
-        mod = num[ch - i];                                    
+        i = 39;
+        mod = num[ch - i];
         fout << mod;
       }
 
       if ((ch >= 48) && (ch <= 57))
       {
-        i = 4;                                              
+        i = 4;
         mod = num[ch + i];
         fout << mod;
       }
 
       if ((ch == 10) || (ch == 13))
       {
-        mod = ch;                                          
+        mod = ch;
         fout << mod;
       }
 
       if (ch == 32)
-        fout << ch;                                          
+        fout << ch;
 
       if (ch == 9)
-        fout << ch; 
+        fout << ch;
 
       if ((ch >= 33) && (ch <= 47))
-      { 
+      {
         mod = ch + 64;
         fout << mod;
       }
 
       if ((ch >= 58) && (ch <= 64))
-      { 
+      {
         mod = ch + 54;
         fout << mod;
       }
 
       if ((ch >= 91) && (ch <= 96))
       {
-        mod = ch + 28;                                      
+        mod = ch + 28;
         fout << mod;
       }
 
       if ((ch >= 123) && (ch <= 126))
       {
-        mod = ch - 40;                                      
+        mod = ch - 40;
         fout << mod;
       }
     }
 
-    fin.close();                                         
-    
-    fout.close();                                         
-   
+    fin.close();
+
+    fout.close();
+
 
     cout << "\n\nYour File Is being Encrypted........... ";
 
     this_thread::sleep_for(chrono::seconds(1));
 
     cout << "\n\nYour File Is Encrypted Now........... ";
-   
+
   }
 
 
@@ -395,7 +395,7 @@ void file_en_de()
   {
 
     string name, target;
-    char ch, mod;                          
+    char ch, mod;
     int num[100], i, flag;
 
     cout << "\n\nEnter The Path Of A File Name Which Is To Be Decrypted : ";
@@ -404,138 +404,138 @@ void file_en_de()
 
     ifstream fin(name);
 
-    if (!fin)                                                   
+    if (!fin)
     {
-    
+
       cout << "\nError In Opening Of A File : ";
-    
-    }                                                            
+
+    }
 
     cout << "\n\nEnter The New Decrypted File Name : ";
     cin.ignore();
     getline(cin, target);
 
     ofstream fout;
-    fout.open(target);  
+    fout.open(target);
 
     if (!fout)
-    { 
+    {
       cout << "\nError In Opening Of A Target File : ";
-      
+
     }
 
     for (i = 0; i < 9; i++)
-    { 
-      num[i] = i;                                               
+    {
+      num[i] = i;
     }
 
     for (i = 14; i < 31; i++)
     {
-      num[i - 5] = i;                                           
+      num[i - 5] = i;
     }
 
-    for (i = 33; i <= 68; i++)                                      
+    for (i = 33; i <= 68; i++)
     {
       num[i - 7] = i;
     }
 
     while (fin)
-    { 
+    {
       fin.get(ch);
-      flag = 0;                                                      
-      
+      flag = 0;
+
       if (ch == EOF)
         break;
 
       for (i = 26; i < 52; i++)
       {
-        if (ch == num[i])                                         
-        {
-          mod = i + 39;                                            
-          fout << mod;                                             
-          flag = 1; 
-          break ;                                           
-        }
-      }
-
-      if (flag == 1) 
-        continue ;                                      
-
-      for (i = 0; i < 26; i++)
-      { 
-        if (ch == num[i])
-        { 
-          mod = i + 97;                                          
-          fout << mod;
-          flag = 1; break;                                           
-        }
-      }
-
-      if (flag == 1) 
-        continue ;                                     
-
-      for (i = 52; i < 62; i++)
-      { 
         if (ch == num[i])
         {
-          mod = i - 4;
+          mod = i + 39;
           fout << mod;
-          flag = 1; 
+          flag = 1;
           break ;
         }
       }
 
-      if (flag == 1) 
+      if (flag == 1)
+        continue ;
+
+      for (i = 0; i < 26; i++)
+      {
+        if (ch == num[i])
+        {
+          mod = i + 97;
+          fout << mod;
+          flag = 1; break;
+        }
+      }
+
+      if (flag == 1)
+        continue ;
+
+      for (i = 52; i < 62; i++)
+      {
+        if (ch == num[i])
+        {
+          mod = i - 4;
+          fout << mod;
+          flag = 1;
+          break ;
+        }
+      }
+
+      if (flag == 1)
         continue ;
 
       if ((ch == 10) || (ch == 13))
       {
-        mod = ch;                                           
+        mod = ch;
         fout << mod;
       }
 
       if (ch == 32)
-        fout << ch;                                           
+        fout << ch;
 
       if (ch == 9)
-        fout << ch;                                           
+        fout << ch;
 
       if ((ch >= 97) && (ch <= 111))
       {
-        mod = ch - 64;                                      
+        mod = ch - 64;
         fout << mod;
       }
 
       if ((ch >= 112) && (ch <= 118))
       {
-        mod = ch - 54;                                     
+        mod = ch - 54;
         fout << mod;
       }
 
       if ((ch >= 119) && (ch <= 124))
       {
-        mod = ch - 28;                                     
+        mod = ch - 28;
         fout << mod;
       }
 
       if ((ch >= 83) && (ch <= 86))
-      { 
+      {
         mod = ch + 40;
         fout << mod;
       }
 
     }
 
-    fin.close();                                        
-    fout.close();                                       
+    fin.close();
+    fout.close();
 
     cout << "\n\nThe File Is Being Decrypted............ ";
-    
+
     this_thread::sleep_for(chrono::seconds(1));
 
     cout << "\n\nThe File Is Decrypted............ ";
-    
-    
+
+
  }
 
 }
@@ -582,9 +582,9 @@ string encrypt_2(string cipher)
   reverselevel(root,0);cout<<endl;
 
   string Encriper = levelOrder(root);
-	
+
 	return Encriper;
-	
+
 }
 
 
@@ -599,7 +599,7 @@ void encrypt_3(string s)
 	head = insert(head, s[i]);
 
 	runLengthEncode (head);
-	
+
 	printList (head);
 }
 
@@ -607,51 +607,51 @@ void encrypt_3(string s)
 //decryption level 1 - run length using queue
 string decrypt_1(LL* head)
 {
-	
+
     LL* p = head;
     string res = "";
     int count;
- 
-    while (p) 
+
+    while (p)
     {
- 
+
         count = 0;
- 
+
         char c = p->data;
-        if (p->next) 
+        if (p->next)
         {
             LL* temp = p->next;
- 
-            if (temp && temp->data >= '0' && temp->data <= '9') 
+
+            if (temp && temp->data >= '0' && temp->data <= '9')
             {
- 
-                while (temp && temp->data >= '0' && temp->data <= '9') 
+
+                while (temp && temp->data >= '0' && temp->data <= '9')
                 {
                     count = count * 10 + (temp->data - '0');
                     temp = temp->next;
                 }
                 p = temp;
             }
-            else 
+            else
             {
                 count = 1;
                 p = p->next;
             }
         }
-        else 
+        else
         {
             count = 1;
             p = p->next;
         }
- 
-        for (int i = 0; i < count; i++) 
+
+        for (int i = 0; i < count; i++)
         {
             res += c;
         }
     }
- 
+
     return res;
-    
+
 }
 
 
@@ -666,7 +666,7 @@ string decrypt_2(string cipher)
     reverselevel(root,0);cout<<endl;
 
     string decipher = levelOrder(root);
-    
+
     return decipher;
 }
 
@@ -674,7 +674,7 @@ string decrypt_2(string cipher)
 //decryption level 3 - using array
 void decrypt_3(string value)
 {
-	
+
 	int i, l = value.size();
 	int s[l];
 
@@ -706,7 +706,7 @@ void about_project()
 {
 	cout<<"\n ABOUT THE PROJECT";
 	cout<<"\n\n\nThis project is developed as the mini-project for Data Structures Lab";
-	cout<<"\n\nIn this digitalized era, the amount of data created and shared using internet has been increasing day by day.\nWe use different applications for data exchange every day."; 
+	cout<<"\n\nIn this digitalized era, the amount of data created and shared using internet has been increasing day by day.\nWe use different applications for data exchange every day.";
 	cout<<"\nThe number of security threats has also increased due to vulnerabilities in the network and software.";
 	cout<<"\nIn this project, we have created a data encrypter which can encrypt the data entered. \nThe encrypted data, then can be shared easliy.";
 	cout<<"\nThis program also includes a decrypter which can easily extract original message from the cipher.";
@@ -720,23 +720,15 @@ void about_project()
 //about developers
 void about_developers()
 {
-	cout<<"\n.....ABOUT THE DEVELOPERS.....\n\n";
-
-	cout<<"This project is developed by students of Jaypee Institute of Information Technology";
-	cout<<"\n\nBatch: F6, B.Tech 2023";
-	cout<<"\n\nThe information about developers is given below (alphabetically): ";
-	cout<<endl<<endl;
-
-	cout<<"\n ____________________________________________________________________________";
-	cout<<"\n|                 Name                |             Enrollment No.           |";
-	cout<<"\n ____________________________________________________________________________";
-	cout<<"\n|          ADITI SHARMA               |                9919103162            |";
-	cout<<"\n|          BRISTI JANA                |                9919103154            |";
-	cout<<"\n|          SHIVIKA SHARMA             |                9919103171            |";
-	cout<<"\n|          VISAL AHMED                |                9919103167            |";
-	cout<<"\n|____________________________________________________________________________|";
-
+	cout<<"\n.....ABOUT THE DEVELOPER.....\n\n";
+    cout<<"\t\t\t\tAl Rahima Lari\n";
+    cout<<"An eager beaver with a passion for learning new technologies. An intellectually curious and";
+    cout<<"\nresult-oriented individual with problemsolving skills. ";
+    cout<<"\nWith an ability to plan in line with the company's objective to meet the needs of the company.";
+    cout<<"\nMY Github profie:github.com/Rahima0512";
+    cout<<"\nDrop me a mail at:ar1278@srmist.edu.in";
 }
+
 
 
 //main function for encryption
@@ -816,7 +808,7 @@ void display()
 	cout<<txt;
 
 	cout<<"\n\nNow, The text is being encrypted on 3rd level...";
-	
+
 	this_thread::sleep_for(chrono::seconds(1));
 
 	encrypt_3(txt);
@@ -870,17 +862,17 @@ void key_encryption()
 
 	switch(ch)
 	{
-		case 1: 
+		case 1:
             encrypt();
 				    break;
 
 
-		case 2:  
+		case 2:
             decrypt();
 				    break;
 
-				
-		case 3: 
+
+		case 3:
             display();
 				    break;
 
@@ -923,7 +915,7 @@ void menu()
 
   do
   {
-    
+
   cout<<"\n __________________________________________________________________________________________";
   cout<<"\n|                                                                                          |";
   cout<<"\n|                                       ...MAIN MENU...                                    |";
@@ -933,7 +925,7 @@ void menu()
     cout<<"\n\n\tPLEASE CHOOSE AN OPTION: \n";
 
     cout<<"\n\t1) About the Project";
-    cout<<"\n\t2) About Developers";
+    cout<<"\n\t2) About Developer";
     cout<<"\n\t3) Key Encryption";
     cout<<"\n\t4) Quit";
 
@@ -971,8 +963,8 @@ void menu()
 //main function for program
 int main()
 {
-  
+
   menu();
-	
+
 	return 0;
 }
